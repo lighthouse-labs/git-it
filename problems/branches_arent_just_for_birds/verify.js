@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 
-var exec = require('child_process').exec
-var fs = require('fs')
-var path = require('path')
-var username = ""
+const exec = require('child_process').exec
+const fs = require('fs')
+const path = require('path')
+const username = ""
 
 // get their username
 // verify branch matches username, case too.
@@ -16,8 +16,8 @@ exec('git config user.username', function(err, stdout, stderr) {
 
   exec('git rev-parse --abbrev-ref HEAD', function(err, stdout, stderr) {
     if (err) return console.log(err)
-    var actualBranch = stdout.trim()
-    var expectedBranch = "add-" + username
+    const actualBranch = stdout.trim()
+    const expectedBranch = "add-" + username
     if (actualBranch.match(expectedBranch)) {
       console.log("Found branch as expected!")
       checkPush(actualBranch)
@@ -48,7 +48,7 @@ function findFile() {
   function check(userspath) {
     fs.readdir(userspath, function(err, files) {
       if (err) return console.log(err)
-      var allFiles = files.join()
+      const allFiles = files.join()
       if (allFiles.match(username)) console.log("File in contributors folder!")
       else console.log("File NOT in contribs.. folder!")
     })

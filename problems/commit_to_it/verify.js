@@ -1,11 +1,11 @@
 #!/usr/bin/env node
 
-var exec = require('child_process').exec
+const exec = require('child_process').exec
 
 // check that they've commited changes
 
 exec('git status', function(err, stdout, stdrr) {
-  var show = stdout.trim()
+  const show = stdout.trim()
 
   if (show.match("Initial commit")) {
     console.log("Hmm, can't find\ncommitted changes.")

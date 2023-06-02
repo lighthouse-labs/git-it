@@ -1,13 +1,13 @@
 #!/usr/bin/env node
 
-var exec = require('child_process').exec
+const exec = require('child_process').exec
 
 // check that they performed a merge
 // check there is not username named branch
 
 exec('git reflog -10', function(err, stdout, stdrr) {
-  var ref = stdout.trim()
-  var user = ""
+  const ref = stdout.trim()
+  const user = ""
   
   if (ref.match("merge")) console.log("Branch has been merged!")
   else console.log("No merge in the history.")

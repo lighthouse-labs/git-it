@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 
-var exec = require('child_process').exec
-var request = require('request')
-var user = ""
+const exec = require('child_process').exec
+const request = require('request')
+const user = ""
 
 // verify they set up git config
 // verify that user exists on GitHub (not case sensitve)
@@ -19,7 +19,7 @@ exec('git config user.username', function(err, stdout, stderr) {
 })
 
 function checkGitHub(user) {
-  var options = {
+  const options = {
         url: "https://api.github.com/users/" + user,
         json: true,
         headers: { 'User-Agent': 'jlord'}

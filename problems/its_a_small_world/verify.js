@@ -1,13 +1,13 @@
 #!/usr/bin/env node
 
-var request = require('request')
-var exec = require('child_process').exec
+const request = require('request')
+const exec = require('child_process').exec
 
-// var url = "http://localhost:5563/collab?username="
-var url = 'http://reporobot.jlord.us/collab?username='
+// const url = "http://localhost:5563/collab?username="
+const url = 'http://reporobot.jlord.us/collab?username='
 
 exec('git config user.username', function(err, stdout, stdrr) {
-  var username = stdout.trim()
+  const username = stdout.trim()
   collaborating(username)
 })
 

@@ -1,23 +1,23 @@
-var Handlebars = require('handlebars')
-var fs = require('fs')
-var glob = require('glob')
+const Handlebars = require('handlebars')
+const fs = require('fs')
+const glob = require('glob')
 
-var translateLocale = require('./translate-locale.js')
+const translateLocale = require('./translate-locale.js')
 
-var layout = fs.readFileSync(__dirname + '/layout.hbs').toString()
-var thefiles = []
+const layout = fs.readFileSync(__dirname + '/layout.hbs').toString()
+const thefiles = []
 
 // Take in a language type if any
-var lang = process.argv[2]
-var rawFiles = __dirname + (lang ? '/raw-content-' + lang + '/' : '/raw-content/')
-var builtContent = __dirname + (lang ? '/challenges-' + lang + '/' : '/challenges/')
+const lang = process.argv[2]
+const rawFiles = __dirname + (lang ? '/raw-content-' + lang + '/' : '/raw-content/')
+const builtContent = __dirname + (lang ? '/challenges-' + lang + '/' : '/challenges/')
 
 // I can probably use glob better to avoid
 // finding the right files within the files
 glob("*.html", {cwd: rawFiles}, function (err, files) {
   thefiles = files
   if (err) return console.log(err)
-  // var matches = files.map(function(file) {
+  // const matches = files.map(function(file) {
   //   if (file.match('guide/raw-content/')) {
   //     return file
   //   }
@@ -35,7 +35,7 @@ function buildPage(files) {
     // translations
 
 
-    var content = {
+    const content = {
       header: buildHeader(file),
       footer: buildFooter(file),
       body: fs.readFileSync(rawFiles + file).toString()
@@ -45,9 +45,9 @@ function buildPage(files) {
       content.body = translateLocale(content.body, lang)
     }
     
-    var shortname = makeShortname(file)
-    var template = Handlebars.compile(layout)
-    var final = template(content)
+    const shortname = makeShortname(file)
+    const template = Handlebars.compile(layout)
+    const final = template(content)
     fs.writeFileSync(builtContent + shortname + 'html', final)
   })
   // hard coded right now because, reasons
@@ -62,18 +62,18 @@ function makeShortname(filename) {
 }
 
 function makeTitleName(filename) {
-  var short = makeShortname(filename).split('_')
+  const short = makeShortname(filename).split('_')
     .join(' ').replace('.', '')
   return grammarize(short)
 }
 
 function buildHeader(filename) {
-  var num = filename.split('/').pop().split('_')[0]
-  var data = getPrevious(num)
-  var title = makeTitleName(filename)
-  var source = fs.readFileSync(__dirname + '/partials/header.html').toString()
-  var template = Handlebars.compile(source)
-  var content = {
+  const num = filename.split('/').pop().split('_')[0]
+  const data = getPrevious(num)
+  const title = makeTitleName(filename)
+  const source = fs.readFileSync(__dirname + '/partials/header.html').toString()
+  const template = Handlebars.compile(source)
+  const content = {
     challengetitle: title,
     challengenumber: num,
     lang: lang ? '-' + lang : '',
@@ -84,9 +84,9 @@ function buildHeader(filename) {
 }
 
 function grammarize(name) {
-  var correct = name
-  var wrongWords = ['arent', 'githubbin', 'its']
-  var rightWords = ["aren't", "GitHubbin", "it's"]
+  const correct = name
+  const wrongWords = ['arent', 'githubbin', 'its']
+  const rightWords = ["aren't", "GitHubbin", "it's"]
 
   wrongWords.forEach(function(word, i) {
     if (name.match(word)) {
@@ -97,28 +97,28 @@ function grammarize(name) {
 }
 
 function buildFooter(file) {
-  var num = file.split('/').pop().split('_')[0]
-  var data = getPrevious(num)
+  const num = file.split('/').pop().split('_')[0]
+  const data = getPrevious(num)
   data.lang = lang ? '-' + lang : ''
-  var source = fs.readFileSync(__dirname + '/partials/footer.html').toString()
-  var template = Handlebars.compile(source)
+  const source = fs.readFileSync(__dirname + '/partials/footer.html').toString()
+  const template = Handlebars.compile(source)
   return template(data)
 }
 
 function getPrevious(num) {
-  var pre = parseInt(num) - 1
-  var next = parseInt(num) + 1
-  var preurl = ''
-  var prename = ''
-  var nexturl = ''
-  var nextname = ''
+  const pre = parseInt(num) - 1
+  const next = parseInt(num) + 1
+  const preurl = ''
+  const prename = ''
+  const nexturl = ''
+  const nextname = ''
   thefiles.forEach(function(file) {
     if (pre === 0) {
       prename = "All Challenges"
       preurl = lang ? '../index-' + lang + '.html' : '../index.html'
     } else if (file.match(pre)) {
       prename = makeTitleName(file)
-      var getridof = pre + '_'
+      const getridof = pre + '_'
       preurl = file.replace(getridof, '')
     }
     if (next === 12) {
@@ -126,7 +126,7 @@ function getPrevious(num) {
       nexturl = lang ? '../index-' + lang + '.html' : '../index.html'
     } else if (file.match(next)) {
       nextname = makeTitleName(file)
-      var getridof = next + '_'
+      const getridof = next + '_'
       nexturl = file.replace(getridof, '')
     }
   })
