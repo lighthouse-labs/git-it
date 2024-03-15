@@ -4,7 +4,7 @@ const request = require('request')
 const exec = require('child_process').exec
 
 // const url = "http://localhost:5563/collab?username="
-const url = 'http://reporobot.jlord.us/collab?username='
+const url = '  https://da3e-23-16-39-44.ngrok-free.app/collab?username='
 
 exec('git config user.username', function(err, stdout, stdrr) {
   const username = stdout.trim()

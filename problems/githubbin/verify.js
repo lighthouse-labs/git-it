@@ -2,7 +2,7 @@
 
 const exec = require('child_process').exec
 const request = require('request')
-const user = ""
+let user = ""
 
 // verify they set up git config
 // verify that user exists on GitHub (not case sensitve)
@@ -22,11 +22,12 @@ function checkGitHub(user) {
   const options = {
         url: "https://api.github.com/users/" + user,
         json: true,
-        headers: { 'User-Agent': 'jlord'}
+        headers: { 'User-Agent': 'lhl-reporobot'}
       }
 
   request(options, function (error, response, body) {
     if (error) return console.log(error)
+    console.log(response)
     if (!error && response.statusCode == 200) {
       console.log("You're on GitHub!")
       checkCapitals(body.login, user)

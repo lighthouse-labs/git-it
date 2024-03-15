@@ -8,7 +8,7 @@ const exec = require('child_process').exec
 exec('git remote -v', function(err, stdout, stdrr) {
   const show = stdout.trim()
 
-  if (show.match("upstream") && show.match("github.com[\:\/]jlord/")) {
+  if (show.match("upstream") && show.match("github.com[\:\/]lhl-reporobot/")) {
     console.log("Upstream remote set up!")
   } else {
     return console.log("No upstream remote")

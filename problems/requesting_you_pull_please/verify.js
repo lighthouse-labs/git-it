@@ -4,7 +4,7 @@ const exec = require('child_process').exec
 const request = require('request')
 
 // const url = "http://localhost:5563/pr?username="
-const url = 'http://reporobot.jlord.us/pr?username='
+const url = '  https://da3e-23-16-39-44.ngrok-free.app/pr?username='
 
 // check that they've submitted a pull request
 // to the original repository jlord/patchwork

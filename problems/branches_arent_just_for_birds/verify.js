@@ -3,7 +3,7 @@
 const exec = require('child_process').exec
 const fs = require('fs')
 const path = require('path')
-const username = ""
+let username = ""
 
 // get their username
 // verify branch matches username, case too.
