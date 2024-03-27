@@ -1,5 +1,5 @@
 {
-  "name": "git-it",
+  "name": "@lighthouse_labs/git-it",
   "version": "1.6.9",
   "description": "Terminal app for learning Git and GitHub",
   "main": "index.js",
