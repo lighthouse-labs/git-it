@@ -18,12 +18,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/jlord/git-it.git"
+    "url": "https://github.com/lighthouse-labs/git-it.git"
   },
   "author": "Jessica Lord",
   "license": "BSD-2-Clause",
   "bugs": {
-    "url": "https://github.com/jlord/git-it/issues"
+    "url": "https://github.com/lighthouse-labs/git-it/issues"
   },
   "dependencies": {
     "concat-stream": "~1.2.1",
@@ -33,7 +33,7 @@
     "handlebars": "^2.0.0-alpha.4",
     "marked": "^0.3.2",
     "request": "~2.74.0",
-    "workshopper-jlord": "^0.0.6",
+    "@lighthouse_labs/workshopper": "^0.0.7",
     "cheerio": "~0.17.0"
   }
 }

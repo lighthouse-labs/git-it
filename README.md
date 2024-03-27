@@ -2,11 +2,11 @@
 
 | :computer: | What is this? |
 | --- | --- |
-| A [workshopper](https://github.com/workshopper/workshopper) module for learning Git and GitHub - Social coding, y'all. <br><br> These modules run a little app in your terminal and users work their way through the challenges. See [nodeschool.io](http://nodeschool.io) for more.
+| A [workshopper](https://github.com/workshopper/workshopper) module for learning Git and GitHub - Social coding, y'all. <br><br> These modules run a little app in your terminal and users work their way through the challenges. This is the Lighthouse Labs version of Git-it. The original package was created for [nodeschool.io](http://nodeschool.io).
 
 ### Get Started
 
-Sections: [Install these first](https://github.com/jlord/git-it/blob/master/README.md#what-youll-need-to-run-git-it) // [Install Git-it](https://github.com/jlord/git-it/blob/master/README.md#install-git-it) // [Using Git-it ](https://github.com/jlord/git-it/blob/master/README.md#how-it-works) // [Tips](https://github.com/jlord/git-it/blob/master/README.md#tips-for-getting-started)
+Sections: [Install these first](https://github.com/lighthouse-labs/git-it/blob/master/README.md#what-youll-need-to-run-git-it) // [Install Git-it](https://github.com/lighthouse-labs/git-it/blob/master/README.md#install-git-it) // [Using Git-it ](https://github.com/lighthouse-labs/git-it/blob/master/README.md#how-it-works) // [Tips](https://github.com/lighthouse-labs/git-it/blob/master/README.md#tips-for-getting-started)
 
 ---
 
@@ -16,8 +16,7 @@ _A few development essentials, all are free and/or free and open source._
 
 - **Git**, this is your tracker of changes!
  - If you're on a **Mac**, you can install Git automatically. To do this, open the Terminal application from spotlight and type `git`. This will prompt Git to install the rest of the command line tools for Git. This should only take a few minutes. It will ask if you would like to download Xcode, which you can ignore.
-- **Node.js**, this is what this app is written in so you'll need this to run it. It's an engine for running JavaScript on servers (your computer is a server!) and will live quietly in the background. You can **download Node [here](https://nodejs.org/en/download/)** (For most, you can just pick the **Windows `.msi`** or **Mac `.pkg`** option).
- - If you already have Node and npm, make sure you have updated versions with at least v 1.4.3 for npm.
+- **Node.js**, this is what this app is written in so you'll need this to run it. It's an engine for running JavaScript on servers (your computer is a server!) and will live quietly in the background. 
 
 ### Install Git-it
 
@@ -26,9 +25,9 @@ Once you have the essentials above, install Git-it.
 - Open up a terminal window and install Git-it globally on your computer (so that you can run it from anywhere). [NPM](https://www.npmjs.com/) (**which is included when you download Node.js**) delivers Node.js modules (that's what this app is) to your computer from the command line, real easy like:
 
 ```bash
-$ npm install -g git-it
+$ npm install -g @lighthouse_labs/git-it
 ```
-- _If you run into trouble with this command it may be due to permissions on your computer, **try adding 'sudo'**:_ `sudo npm install -g git-it`
+- _If you run into trouble with this command it may be due to permissions on your computer, **try adding 'sudo'**:_ `sudo npm install -g @lighthouse_labs/git-it`
 - Once it's done installing components, you can run it:
 
 ```bash
@@ -39,11 +38,9 @@ $ git-it
 ### How it Works
 
 - Once you've run `git-it` and the menu has loaded, use the arrows ↑↓ to select the first challenge and press 'enter'.
-- With the challenge loaded, follow the instructions at the bottom of the input to open the guide. 
+- With the challenge loaded, follow the instructions on Compass. 
 
-![img](https://raw.githubusercontent.com/jlord/git-it/master/guide-ss.png)
-
-- Read the instructions in the guide and use your terminal to complete the tasks.
+- Read the instructions in Compass and use your terminal to complete the tasks.
 - When you're done with a challenge, type `git-it verify` in terminal.
 - If the challenge components were not completed correctly, Git-it returns some text to help you know what went wrong.
 - Run `git-it` again to load the menu and select the next challenge!

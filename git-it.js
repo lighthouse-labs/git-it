@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-const Workshopper = require('workshopper-jlord'),
+const Workshopper = require('@lighthouse_labs/workshopper'),
       path = require('path')
 
 process.env.LANG = 'C'
