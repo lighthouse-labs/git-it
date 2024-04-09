@@ -27,7 +27,6 @@ function checkGitHub(user) {
 
   request(options, function (error, response, body) {
     if (error) return console.log(error)
-    console.log(response)
     if (!error && response.statusCode == 200) {
       console.log("You're on GitHub!")
       checkCapitals(body.login, user)
